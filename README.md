@@ -105,7 +105,7 @@ expressionParser 열거형의 역할이 무엇일가에 대한 고민을 아주 
 
 숫자값을 문자열화 시켜주는 fomatter
 
-```swift=
+```swift
 let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.minimumIntegerDigits = 1
@@ -118,7 +118,7 @@ let formatter = NumberFormatter()
 세자리수 마다 콤마 넣기, 소수점 처리, 자릿수 편집 등이 가능하다.
 
 **ScrollView 구현**
-```swift=
+```swift
 func generateStackLabels() -> (UILabel, UILabel)? {
     let validNumber = (operandLabel.text ?? CalculatorString.emptyString).replacingOccurrences(of: ",", with: CalculatorString.emptyString)
         
@@ -134,7 +134,7 @@ func generateStackLabels() -> (UILabel, UILabel)? {
 }
 ```
 스택뷰에 쌓여질 레이블에 숫자와 연산기호를 할당해 준다.
-```swift=
+```swift
 func setLabel(_ label: String) -> UILabel {
     let newLabel = UILabel()
     newLabel.textColor = .white
@@ -144,7 +144,7 @@ func setLabel(_ label: String) -> UILabel {
 }
 ```
 할당한 레이블의 글자의 색을 설정해 주었다.
-```swift=
+```swift
 func generateStack() -> UIStackView? {
     guard let (operatorStackLabel, numberStackLabel) = generateStackLabels() else { return nil }
     let stack = UIStackView()
@@ -159,7 +159,7 @@ func generateStack() -> UIStackView? {
 }
 ```
 레이블을 쌓을 스택뷰를 생성한 다음 스택에 레이블을 할당해 주었다.
-```swift=
+```swift
 func addInputStack() {
     guard let stack = generateStack() else { return }
         
@@ -168,7 +168,7 @@ func addInputStack() {
 }
 ```
 생성한 스택뷰를 서브뷰에 더해줌으로 인해 실제 화면에 나타나도록 설정 하였다.
-```swift=
+```swift
 func scrollToBottom(_ scrollView: UIScrollView) {
     scrollView.layoutIfNeeded()
     scrollView.setContentOffset(CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.frame.height), animated: false)
